@@ -9,46 +9,55 @@
     <style>
         body { font-family: 'JetBrains+Mono', monospace; }
         .title-font { font-family: 'Archivo+Black', sans-serif; }
-        .bought { filter: grayscale(1) opacity(0.3); }
+        
+        /* Estilo do "Já Comprei" */
+        .bought { 
+            filter: grayscale(1) !important; 
+            opacity: 0.4; 
+            pointer-events: none; /* Opcional: impede novos cliques após marcado */
+        }
+        .bought .check-badge { display: block !important; }
         .card-shadow { box-shadow: 10px 10px 0px 0px rgba(220, 38, 38, 0.2); }
     </style>
 </head>
-<body class="bg-[#0a0a0a] text-gray-100 pb-20">
+<body class="bg-[#0a0a0a] text-gray-100 pb-20 text-sm">
 
     <header class="py-16 px-6 text-center bg-gradient-to-b from-red-900/20 to-transparent">
-        <h1 class="title-font text-5xl md:text-7xl italic uppercase tracking-tighter text-red-600 mb-2">PROJETO <span class="text-white">GOLETA</span></h1>
-        <p class="text-gray-500 text-sm uppercase tracking-[0.3em]">Lista de Peças & Upgrades para o Quadrado</p>
+        <h1 class="title-font text-5xl italic uppercase tracking-tighter text-red-600 mb-2">PROJETO <span class="text-white">GOLETA</span></h1>
+        <p class="text-gray-500 uppercase tracking-[0.3em] text-xs">Lista de Peças & Upgrades</p>
     </header>
 
     <nav class="max-w-6xl mx-auto px-6 mb-12 flex flex-wrap gap-4 justify-center">
-        <button onclick="filterPrice('all')" class="px-6 py-2 border-2 border-red-600 bg-red-600 text-white font-bold uppercase text-xs hover:bg-transparent transition-all">Todos</button>
-        <button onclick="filterPrice('low')" class="px-6 py-2 border-2 border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-xs transition-all">Até R$ 150</button>
-        <button onclick="filterPrice('mid')" class="px-6 py-2 border-2 border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-xs transition-all">R$ 150 - R$ 500</button>
-        <button onclick="filterPrice('high')" class="px-6 py-2 border-2 border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-xs transition-all">R$ 500+</button>
+        <button onclick="filterPrice('all')" class="px-4 py-2 border border-red-600 bg-red-600 text-white font-bold uppercase text-[10px]">Todos</button>
+        <button onclick="filterPrice('low')" class="px-4 py-2 border border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-[10px]">Até R$ 150</button>
+        <button onclick="filterPrice('mid')" class="px-4 py-2 border border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-[10px]">R$ 151 - R$ 500</button>
+        <button onclick="filterPrice('high')" class="px-4 py-2 border border-gray-700 hover:border-red-600 text-gray-400 font-bold uppercase text-[10px]">R$ 500+</button>
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="parts-grid">
         
-        <div class="item-card card-shadow bg-[#151515] border border-gray-800 p-4 transition-all" data-price="120">
-            <div class="relative group cursor-pointer" onclick="this.parentElement.classList.toggle('bought')">
-                <img src="https://http2.mlstatic.com/D_NQ_NP_832165-MLB47644342412_092021-O.webp" class="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all border border-gray-700 mb-4" alt="Manopla">
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-red-600/20 transition-all text-white font-bold uppercase tracking-widest text-sm">Comprado?</div>
+        <div class="item-card card-shadow bg-[#151515] border border-gray-800 p-4 transition-all relative cursor-pointer" 
+             data-price="120" id="item-1" onclick="markAsBought('item-1')">
+            
+            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-lg">
+                GARANTIDO ✅
             </div>
-            <h3 class="title-font text-xl mb-1 uppercase">Manopla de Câmbio Shuttle</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-lg">R$ 120,00</p>
-            <a href="https://www.mercadolivre.com.br" target="_blank" class="block text-center py-2 bg-white text-black font-black uppercase text-xs hover:bg-red-600 hover:text-white transition-colors">Onde Comprar</a>
+
+            <img src="https://http2.mlstatic.com/D_NQ_NP_832165-MLB47644342412_092021-O.webp" class="w-full h-40 object-cover border border-gray-800 mb-4">
+            <h3 class="title-font text-lg mb-1 uppercase text-white">Manopla de Câmbio Shuttle</h3>
+            <p class="text-red-500 font-bold mb-4 italic">R$ 120,00</p>
+            <a href="LINK_AQUI" target="_blank" onclick="event.stopPropagation()" class="block text-center py-2 bg-white text-black font-black uppercase text-[10px] hover:bg-red-600 transition-colors">Ver na Loja</a>
         </div>
 
-        <div class="item-card card-shadow bg-[#151515] border border-gray-800 p-4 transition-all" data-price="450">
-            <div class="relative group cursor-pointer" onclick="this.parentElement.classList.toggle('bought')">
-                <img src="https://http2.mlstatic.com/D_NQ_NP_918510-MLB45654512402_042021-O.webp" class="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all border border-gray-700 mb-4" alt="Volante">
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-red-600/20 transition-all text-white font-bold uppercase tracking-widest text-sm">Comprado?</div>
+        <div class="item-card card-shadow bg-[#151515] border border-gray-800 p-4 transition-all relative cursor-pointer" 
+             data-price="450" id="item-2" onclick="markAsBought('item-2')">
+            
+            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-lg">
+                GARANTIDO ✅
             </div>
-            <h3 class="title-font text-xl mb-1 uppercase">Volante Esportivo FuelTech</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-lg">R$ 450,00</p>
-            <a href="#" target="_blank" class="block text-center py-2 bg-white text-black font-black uppercase text-xs hover:bg-red-600 hover:text-white transition-colors">Onde Comprar</a>
-        </div>
 
-        <div class="item-card card-shadow bg-[#151515] border border-gray-800 p-4 transition-all" data-price="800">
-            <div class="relative group cursor-pointer" onclick="this.parentElement.classList.toggle('bought')">
-                <img src="https://images.tcdn
+            <img src="https://http2.mlstatic.com/D_NQ_NP_918510-MLB45654512402_042021-O.webp" class="w-full h-40 object-cover border border-gray-800 mb-4">
+            <h3 class="title-font text-lg mb-1 uppercase text-white">Volante FuelTech</h3>
+            <p class="text-red-500 font-bold mb-4 italic">R$ 450,00</p>
+            <a href="LINK_AQUI" target="_blank" onclick="event.stopPropagation()" class="block text-center py-2 bg-white text-black font-black uppercase text-[10px] hover:bg-red-600 transition-colors">Ver na Loja</a>
+        </div>
