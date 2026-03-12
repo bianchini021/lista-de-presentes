@@ -2,94 +2,143 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>SQL Noir - Wanted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - UI/UX Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
         body {
-            background-color: #121212; /* Fundo escuro do arquivo */
-            color: #e0b044; /* Aquele amarelo/dourado característico do SQL Noir */
-            font-family: 'Courier Prime', monospace; /* Fonte de máquina de escrever */
+            /* O gradiente profundo que vemos no fundo da imagem */
+            background: radial-gradient(circle at top right, #1e2a4a, #030712);
+            color: white;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-transform: uppercase;
+            flex-direction: column;
         }
 
-        .poster {
-            border: 4px solid #e0b044;
-            padding: 40px;
-            max-width: 600px;
-            text-align: center;
-            background-color: #1a1a1a;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 10px;
-            border-bottom: 4px solid #e0b044;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .sub-header {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            margin-bottom: 30px;
-        }
-
-        .photo-placeholder {
-            width: 300px;
-            height: 350px;
-            border: 2px solid #e0b044;
-            margin: 0 auto 30px;
+        /* Navbar estilo Glassmorphism */
+        header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            position: relative;
+            padding: 30px 10%;
         }
 
-        /* O X que aparece no lugar da foto no design */
-        .photo-placeholder::before, .photo-placeholder::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #333;
-        }
-        .photo-placeholder::before { transform: rotate(45deg); }
-        .photo-placeholder::after { transform: rotate(-45deg); }
-
-        .details {
+        .logo {
             font-size: 1.5rem;
-            letter-spacing: 3px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        .id-number {
-            margin-top: 10px;
-            font-size: 1rem;
-            opacity: 0.8;
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Seção Principal */
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text span {
+            color: #38bdf8; /* Azul claro neon dos detalhes */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Botão estilizado */
+        .btn {
+            background: #fff;
+            color: #000;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Elemento flutuante/imagem do lado direito */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            width: 400px;
+            height: 500px;
+            position: relative;
         }
     </style>
 </head>
 <body>
 
-    <div class="poster">
-        <h1>WANTED</h1>
-        <div class="sub-header">Dead or Alive</div>
-        
-        <div class="photo-placeholder">
-            <span>No Photo Available</span>
+    <header>
+        <div class="logo">DESIGNER.</div>
+        <nav>
+            <a href="#">Work</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero-text">
+            <span>UI/UX & Product Designer</span>
+            <h1>Digital Experience Designer.</h1>
+            <p>I create high-quality digital products that help businesses grow and engage with their customers.</p>
+            <a href="#" class="btn">View My Work</a>
         </div>
 
-        <div class="details">
-            THOMAS BROWN
+        <div class="hero-image">
+            <div class="glass-card">
+                </div>
         </div>
-        <div class="id-number">ID: 19860814-DOCS</div>
     </div>
 
 </body>
