@@ -1,132 +1,159 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist do Goleta 🚗</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Gallery - Grand Exhibition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'JetBrains+Mono', monospace; scroll-behavior: smooth; }
-        .title-font { font-family: 'Archivo+Black', sans-serif; }
-        
-        /* Efeito de item comprado */
-        .bought { 
-            filter: grayscale(1) !important; 
-            opacity: 0.3; 
-            pointer-events: none; 
-            border-color: #333 !important;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .bought .check-badge { display: block !important; }
-        
-        /* Sombra estilo retro/custom */
-        .card-shadow { 
-            box-shadow: 8px 8px 0px 0px rgba(220, 38, 38, 0.3); 
-            transition: all 0.2s ease;
+
+        body {
+            background-color: #000; /* Preto puro como na imagem */
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Mantém o layout limpo */
         }
-        .card-shadow:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px 0px rgba(220, 38, 38, 0.5);
+
+        /* Topo do Site (Menu) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+        }
+
+        .logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Conteúdo Central */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .est-date {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+
+        .explore-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 15px 45px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .explore-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Rodapé com Ícones e Scroll */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin-right: 20px;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .scroll-down {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scroll-down::after {
+            content: "";
+            width: 40px;
+            height: 1px;
+            background-color: #fff;
+            display: inline-block;
         }
     </style>
 </head>
-<body class="bg-[#0d0d0d] text-gray-100 pb-20">
+<body>
 
-    <header class="py-16 px-6 text-center bg-gradient-to-b from-red-950/30 to-transparent border-b border-gray-900">
-        <h1 class="title-font text-5xl md:text-7xl italic uppercase tracking-tighter text-red-600 mb-2">
-            PROJETO <span class="text-white">GOLETA</span>
-        </h1>
-        <p class="text-gray-500 uppercase tracking-[0.3em] text-[10px] md:text-xs">
-            Lista de Desejos para o Quadrado 1000
-        </p>
+    <header>
+        <div class="logo">THE GALLERY</div>
+        <nav>
+            <a href="#">Inspiration</a>
+            <a href="#">Exhibitions</a>
+            <a href="#">Artists</a>
+        </nav>
     </header>
 
-    <nav class="max-w-6xl mx-auto px-6 my-10 flex flex-wrap gap-3 justify-center">
-        <button onclick="filterPrice('all')" class="px-5 py-2 border-2 border-red-600 bg-red-600 text-white font-bold uppercase text-[10px] hover:bg-transparent transition-all">Todos</button>
-        <button onclick="filterPrice('low')" class="px-5 py-2 border-2 border-gray-800 text-gray-400 font-bold uppercase text-[10px] hover:border-red-600 transition-all">Até R$ 150</button>
-        <button onclick="filterPrice('mid')" class="px-5 py-2 border-2 border-gray-800 text-gray-400 font-bold uppercase text-[10px] hover:border-red-600 transition-all">R$ 151 - R$ 500</button>
-    </nav>
-
-    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="parts-grid">
-        
-        <div class="item-card card-shadow bg-[#121212] border border-gray-800 p-5 relative cursor-pointer" 
-             data-price="23" id="adesivo-1000" onclick="markAsBought('adesivo-1000')">
-            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-xl shadow-2xl">GARANTIDO ✅</div>
-            <img src="https://via.placeholder.com/400x300/1a1a1a/666?text=FOTO+DO+ADESIVO" class="w-full h-44 object-cover border border-gray-800 mb-4 rounded-sm">
-            <h3 class="title-font text-lg mb-1 uppercase text-white leading-tight">Adesivo Gol 1000 (Mala)</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-xl">R$ 23,00</p>
-            <a href="https://shopee.com.br/Emblema-Gol-1000-Vw-Da-Mala-Quadrado-1991-%C3%80-1995-i.733133617.23794207919" target="_blank" onclick="event.stopPropagation()" class="block text-center py-3 bg-white text-black font-black uppercase text-[11px] hover:bg-red-600 hover:text-white transition-colors">Comprar na Shopee</a>
-        </div>
-
-        <div class="item-card card-shadow bg-[#121212] border border-gray-800 p-5 relative cursor-pointer" 
-             data-price="12" id="pino-trava" onclick="markAsBought('pino-trava')">
-            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-xl shadow-2xl">GARANTIDO ✅</div>
-            <img src="https://via.placeholder.com/400x300/1a1a1a/666?text=FOTO+DOS+PINOS" class="w-full h-44 object-cover border border-gray-800 mb-4 rounded-sm">
-            <h3 class="title-font text-lg mb-1 uppercase text-white leading-tight">Par de Pinos Trava Porta</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-xl">R$ 12,00</p>
-            <a href="https://shopee.com.br/Par-Bot%C3%A3o-Pino-Trava-Porta-Fusca-Gol-Quadrado-Voyage-Parati-Saveiro-i.676520303.21936022823" target="_blank" onclick="event.stopPropagation()" class="block text-center py-3 bg-white text-black font-black uppercase text-[11px] hover:bg-red-600 hover:text-white transition-colors">Comprar na Shopee</a>
-        </div>
-
-        <div class="item-card card-shadow bg-[#121212] border border-gray-800 p-5 relative cursor-pointer" 
-             data-price="30" id="tapete-borracha" onclick="markAsBought('tapete-borracha')">
-            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-xl shadow-2xl">GARANTIDO ✅</div>
-            <img src="https://via.placeholder.com/400x300/1a1a1a/666?text=FOTO+DO+TAPETE" class="w-full h-44 object-cover border border-gray-800 mb-4 rounded-sm">
-            <h3 class="title-font text-lg mb-1 uppercase text-white leading-tight">Jogo Tapetes Borracha (3pçs)</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-xl">R$ 30,00</p>
-            <a href="https://shopee.com.br/Tapete-Volkswagen-Gol-Quadrado-Vers%C3%A1til-Borracha-3-pe%C3%A7as-Tapete-Automotivo-Tapete-Carro-Carpete-i.1659647396.22399189838" target="_blank" onclick="event.stopPropagation()" class="block text-center py-3 bg-white text-black font-black uppercase text-[11px] hover:bg-red-600 hover:text-white transition-colors">Comprar na Shopee</a>
-        </div>
-
-        <div class="item-card card-shadow bg-[#121212] border border-gray-800 p-5 relative cursor-pointer" 
-             data-price="150" id="forro-porta" onclick="markAsBought('forro-porta')">
-            <div class="check-badge hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-green-500 text-black font-black px-4 py-2 rotate-12 border-4 border-black text-xl shadow-2xl">GARANTIDO ✅</div>
-            <img src="https://via.placeholder.com/400x300/1a1a1a/666?text=FOTO+DO+FORRO" class="w-full h-44 object-cover border border-gray-800 mb-4 rounded-sm">
-            <h3 class="title-font text-lg mb-1 uppercase text-white leading-tight">Forro de Porta Preto Vinil</h3>
-            <p class="text-red-500 font-bold mb-4 italic text-xl">R$ 150,00</p>
-            <a href="https://shopee.com.br/Jogo-Papel%C3%A3o-Revestimento-Forro-Porta-Gol-Quadrado-Cl-Vinil-i.521372664.18598012389" target="_blank" onclick="event.stopPropagation()" class="block text-center py-3 bg-white text-black font-black uppercase text-[11px] hover:bg-red-600 hover:text-white transition-colors">Comprar na Shopee</a>
-        </div>
-
+    <main>
+        <div class="est-date">EST. 1887</div>
+        <h1>THE GRAND<br>EXHIBITION</h1>
+        <button class="explore-btn">EXPLORE</button>
     </main>
 
-    <footer class="text-center py-20 text-gray-700 text-[10px] uppercase tracking-widest font-bold">
-        Build: 2024.1 | Projeto Goleta Wishlist
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="scroll-down">Scroll Down</div>
     </footer>
 
-    <script>
-        // Função para marcar como comprado e salvar no localStorage
-        function markAsBought(id) {
-            const element = document.getElementById(id);
-            if (!element.classList.contains('bought')) {
-                element.classList.add('bought');
-                localStorage.setItem(id, 'comprado');
-            }
-        }
-
-        // Carregar itens já comprados ao abrir a página
-        window.onload = () => {
-            const cards = document.querySelectorAll('.item-card');
-            cards.forEach(card => {
-                if(localStorage.getItem(card.id) === 'comprado') {
-                    card.classList.add('bought');
-                }
-            });
-        };
-
-        // Filtro de Preço
-        function filterPrice(category) {
-            const cards = document.querySelectorAll('.item-card');
-            cards.forEach(card => {
-                const price = parseInt(card.getAttribute('data-price'));
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else if (category === 'low' && price <= 150) {
-                    card.style.display = 'block';
-                } else if (category === 'mid' && price > 150 && price <= 500) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 </html>
