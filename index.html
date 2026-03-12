@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gallery - Grand Exhibition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <title>The Gallery - Exhibition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -15,45 +15,41 @@
         }
 
         body {
-            background-color: #000; /* Preto puro como na imagem */
-            color: #fff;
+            /* Cor de fundo exata do seu PNG (um bege suave/off-white) */
+            background-color: #f2f0ef; 
+            color: #1a1a1a; /* Texto quase preto para contraste suave */
             font-family: 'Montserrat', sans-serif;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Mantém o layout limpo */
+            overflow: hidden;
         }
 
-        /* Topo do Site (Menu) */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 60px;
+            padding: 50px 80px;
         }
 
         .logo {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         nav a {
-            color: #fff;
+            color: #1a1a1a;
             text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            margin-left: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            transition: opacity 0.3s;
+            font-weight: 300;
         }
 
-        nav a:hover {
-            opacity: 0.6;
-        }
-
-        /* Conteúdo Central */
         main {
             flex: 1;
             display: flex;
@@ -61,70 +57,230 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding-bottom: 50px; /* Sobe um pouco o conteúdo para o centro visual */
         }
 
         .est-date {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
             font-weight: 300;
         }
 
         h1 {
-            font-family: 'Bodoni Moda', serif;
-            font-size: 5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem; /* Tamanho imponente como na imagem */
             font-weight: 400;
-            letter-spacing: 8px;
-            line-height: 1.1;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 45px;
+            color: #1a1a1a;
         }
 
         .explore-btn {
             background: transparent;
-            color: #fff;
-            border: 1px solid #fff;
-            padding: 15px 45px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
+            color: #1a1a1a;
+            border: 0.5px solid #1a1a1a; /* Linha bem fina */
+            padding: 12px 50px;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
             cursor: pointer;
-            transition: all 0.4s;
             font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
         }
 
         .explore-btn:hover {
-            background: #fff;
-            color: #000;
+            background: #1a1a1a;
+            color: #f2f0ef;
         }
 
-        /* Rodapé com Ícones e Scroll */
         footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 60px;
+            padding: 40px 80px;
         }
 
         .social-icons a {
-            color: #fff;
-            margin-right: 20px;
-            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-right: 25px;
+            font-size: 0.9rem;
             text-decoration: none;
         }
 
         .scroll-down {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-weight: 300;
         }
 
         .scroll-down::after {
             content: "";
-            width: 40px;
+            width: 60px;
             height: 1px;
-            background-color: #fff;
+            background-color: #1a1a1a;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">THE GALLERY</div>
+        <nav>
+            <a href="#">Inspiration</a>
+            <a href="#">Exhibitions</a>
+            <a href="#">Artists</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="est-date">EST. 1887</div>
+        <h1>THE GRAND<br>EXHIBITION</h1>
+        <button class="explore-btn">EXPLORE</button>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="scroll-down">Scroll Down</div>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gallery - Exhibition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Cor de fundo exata do seu PNG (um bege suave/off-white) */
+            background-color: #f2f0ef; 
+            color: #1a1a1a; /* Texto quase preto para contraste suave */
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 80px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-left: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 50px; /* Sobe um pouco o conteúdo para o centro visual */
+        }
+
+        .est-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem; /* Tamanho imponente como na imagem */
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-bottom: 45px;
+            color: #1a1a1a;
+        }
+
+        .explore-btn {
+            background: transparent;
+            color: #1a1a1a;
+            border: 0.5px solid #1a1a1a; /* Linha bem fina */
+            padding: 12px 50px;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            background: #1a1a1a;
+            color: #f2f0ef;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 80px;
+        }
+
+        .social-icons a {
+            color: #1a1a1a;
+            margin-right: 25px;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .scroll-down {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 300;
+        }
+
+        .scroll-down::after {
+            content: "";
+            width: 60px;
+            height: 1px;
+            background-color: #1a1a1a;
             display: inline-block;
         }
     </style>
