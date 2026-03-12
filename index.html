@@ -2,314 +2,95 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gallery - Exhibition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <title>SQL Noir - Wanted</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
         body {
-            /* Cor de fundo exata do seu PNG (um bege suave/off-white) */
-            background-color: #f2f0ef; 
-            color: #1a1a1a; /* Texto quase preto para contraste suave */
-            font-family: 'Montserrat', sans-serif;
-            height: 100vh;
+            background-color: #121212; /* Fundo escuro do arquivo */
+            color: #e0b044; /* Aquele amarelo/dourado característico do SQL Noir */
+            font-family: 'Courier Prime', monospace; /* Fonte de máquina de escrever */
             display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-left: 40px;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding-bottom: 50px; /* Sobe um pouco o conteúdo para o centro visual */
+            height: 100vh;
+            margin: 0;
+            text-transform: uppercase;
         }
 
-        .est-date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            margin-bottom: 15px;
-            font-weight: 300;
+        .poster {
+            border: 4px solid #e0b044;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5.5rem; /* Tamanho imponente como na imagem */
-            font-weight: 400;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 45px;
-            color: #1a1a1a;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 10px;
+            border-bottom: 4px solid #e0b044;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .explore-btn {
-            background: transparent;
-            color: #1a1a1a;
-            border: 0.5px solid #1a1a1a; /* Linha bem fina */
-            padding: 12px 50px;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s ease;
+        .sub-header {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
         }
 
-        .explore-btn:hover {
-            background: #1a1a1a;
-            color: #f2f0ef;
-        }
-
-        footer {
+        .photo-placeholder {
+            width: 300px;
+            height: 350px;
+            border: 2px solid #e0b044;
+            margin: 0 auto 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 40px 80px;
+            position: relative;
         }
 
-        .social-icons a {
-            color: #1a1a1a;
-            margin-right: 25px;
-            font-size: 0.9rem;
-            text-decoration: none;
+        /* O X que aparece no lugar da foto no design */
+        .photo-placeholder::before, .photo-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
         }
+        .photo-placeholder::before { transform: rotate(45deg); }
+        .photo-placeholder::after { transform: rotate(-45deg); }
 
-        .scroll-down {
-            font-size: 0.65rem;
+        .details {
+            font-size: 1.5rem;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 300;
         }
 
-        .scroll-down::after {
-            content: "";
-            width: 60px;
-            height: 1px;
-            background-color: #1a1a1a;
-            display: inline-block;
+        .id-number {
+            margin-top: 10px;
+            font-size: 1rem;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">THE GALLERY</div>
-        <nav>
-            <a href="#">Inspiration</a>
-            <a href="#">Exhibitions</a>
-            <a href="#">Artists</a>
-        </nav>
-    </header>
-
-    <main>
-        <div class="est-date">EST. 1887</div>
-        <h1>THE GRAND<br>EXHIBITION</h1>
-        <button class="explore-btn">EXPLORE</button>
-    </main>
-
-    <footer>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+    <div class="poster">
+        <h1>WANTED</h1>
+        <div class="sub-header">Dead or Alive</div>
+        
+        <div class="photo-placeholder">
+            <span>No Photo Available</span>
         </div>
-        <div class="scroll-down">Scroll Down</div>
-    </footer>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gallery - Exhibition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            /* Cor de fundo exata do seu PNG (um bege suave/off-white) */
-            background-color: #f2f0ef; 
-            color: #1a1a1a; /* Texto quase preto para contraste suave */
-            font-family: 'Montserrat', sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-left: 40px;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 50px; /* Sobe um pouco o conteúdo para o centro visual */
-        }
-
-        .est-date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5.5rem; /* Tamanho imponente como na imagem */
-            font-weight: 400;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 45px;
-            color: #1a1a1a;
-        }
-
-        .explore-btn {
-            background: transparent;
-            color: #1a1a1a;
-            border: 0.5px solid #1a1a1a; /* Linha bem fina */
-            padding: 12px 50px;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .explore-btn:hover {
-            background: #1a1a1a;
-            color: #f2f0ef;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 80px;
-        }
-
-        .social-icons a {
-            color: #1a1a1a;
-            margin-right: 25px;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-
-        .scroll-down {
-            font-size: 0.65rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 300;
-        }
-
-        .scroll-down::after {
-            content: "";
-            width: 60px;
-            height: 1px;
-            background-color: #1a1a1a;
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">THE GALLERY</div>
-        <nav>
-            <a href="#">Inspiration</a>
-            <a href="#">Exhibitions</a>
-            <a href="#">Artists</a>
-        </nav>
-    </header>
-
-    <main>
-        <div class="est-date">EST. 1887</div>
-        <h1>THE GRAND<br>EXHIBITION</h1>
-        <button class="explore-btn">EXPLORE</button>
-    </main>
-
-    <footer>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="details">
+            THOMAS BROWN
         </div>
-        <div class="scroll-down">Scroll Down</div>
-    </footer>
+        <div class="id-number">ID: 19860814-DOCS</div>
+    </div>
 
 </body>
 </html>
