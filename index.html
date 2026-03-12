@@ -1,145 +1,532 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - UI/UX Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Clara — Storymaker & Criadora de Conteúdo Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5C97A;
+    --pink: #D63A6A;
+    --dark-pink: #B02F5A;
+    --cream: #FAE8C0;
+    --dark: #2a1a1a;
+    --white: #fff;
+  }
 
-        body {
-            /* O gradiente profundo que vemos no fundo da imagem */
-            background: radial-gradient(circle at top right, #1e2a4a, #030712);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Navbar estilo Glassmorphism */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 10%;
-        }
+  body {
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+  /* ── HERO ── */
+  .hero {
+    background: var(--bg);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
 
-        nav a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 35px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: var(--pink);
+    opacity: .18;
+  }
 
-        nav a:hover {
-            color: #fff;
-        }
+  .hero-left { z-index: 2; }
 
-        /* Seção Principal */
-        .container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-        }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 700;
+    color: var(--pink);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
 
-        .hero-text {
-            max-width: 600px;
-        }
+  .hero-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-top: 8px;
+    letter-spacing: .5px;
+  }
 
-        .hero-text span {
-            color: #38bdf8; /* Azul claro neon dos detalhes */
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+  /* decorative squiggles */
+  .squiggle {
+    position: absolute;
+    fill: none;
+    stroke: var(--pink);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+  .sq1 { top: 30px; left: 20px; width: 80px; transform: rotate(-20deg); }
+  .sq2 { bottom: 80px; left: 60px; width: 60px; transform: rotate(10deg); }
+  .sq3 { top: 80px; right: 20px; width: 70px; transform: rotate(30deg); }
 
-        .hero-text h1 {
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin: 20px 0;
-        }
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
 
-        .hero-text p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
+  .phone-mockup {
+    width: 220px;
+    height: 420px;
+    background: var(--dark);
+    border-radius: 36px;
+    border: 6px solid #111;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    position: relative;
+    transform: rotate(3deg);
+  }
 
-        /* Botão estilizado */
-        .btn {
-            background: #fff;
-            color: #000;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #3a1a2a 0%, #7a2040 50%, #d63a6a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+  }
 
-        .btn:hover {
-            transform: translateY(-5px);
-        }
+  .phone-badge {
+    background: #D63A6A;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
 
-        /* Elemento flutuante/imagem do lado direito */
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
+  .phone-photo-placeholder {
+    width: 100px;
+    height: 110px;
+    background: rgba(255,255,255,.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,.5);
+    font-size: 10px;
+    text-align: center;
+  }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            width: 400px;
-            height: 500px;
-            position: relative;
-        }
-    </style>
+  /* ── SOBRE MIM ── */
+  .sobre {
+    background: var(--bg);
+    padding: 80px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+
+  .sobre-img-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sobre-img-frame {
+    width: 280px;
+    height: 320px;
+    border: 4px solid var(--pink);
+    border-radius: 8px;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* inner corner dots */
+  .sobre-img-frame::before,
+  .sobre-img-frame::after {
+    content: '';
+    position: absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--pink);
+  }
+  .sobre-img-frame::before { top: -7px; left: -7px; }
+  .sobre-img-frame::after  { bottom: -7px; right: -7px; }
+
+  .sobre-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #aaa;
+    background: #e8d8c0;
+    font-style: italic;
+  }
+
+  .sobre-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 20px;
+  }
+
+  .sobre-text p {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--dark);
+    max-width: 480px;
+  }
+
+  /* ── WORK SECTIONS ── */
+  .work-section {
+    background: var(--bg);
+    padding: 40px 80px 60px;
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: .5px;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .section-label::before,
+  .section-label::after {
+    content: '❮❮';
+    position: absolute;
+    color: var(--pink);
+    font-size: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .section-label::before { right: calc(100% + 6px); }
+  .section-label::after  { content: '❯❯'; left: calc(100% + 6px); }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--cream);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(0,0,0,.1);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  }
+
+  .gallery-card.tall {
+    aspect-ratio: 3/4;
+    grid-row: span 1;
+  }
+
+  .gallery-card-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+  }
+
+  /* nails category */
+  .nails-1 { background: linear-gradient(135deg, #e8d5e0 0%, #c9a0b4 100%); }
+  .nails-2 { background: linear-gradient(135deg, #f0e8d0 0%, #d4b896 100%); }
+  .nails-3 { background: linear-gradient(135deg, #dce8f0 0%, #9ab5cc 100%); }
+
+  /* wedding category */
+  .wedding-1 { background: linear-gradient(135deg, #f5f0e8 0%, #d4ccb8 100%); }
+  .wedding-2 { background: linear-gradient(135deg, #e8f0e8 0%, #a8c4a8 100%); }
+  .wedding-3 { background: linear-gradient(135deg, #f0e8f0 0%, #c4a8c4 100%); }
+
+  /* event category */
+  .event-1 { background: linear-gradient(135deg, #1a1a4a 0%, #3a3a8a 100%); }
+  .event-2 { background: linear-gradient(135deg, #8a1a1a 0%, #d42020 100%); }
+  .event-3 { background: linear-gradient(135deg, #2a1a1a 0%, #5a2a2a 100%); }
+
+  /* ── QUOTE BANNER ── */
+  .quote-banner {
+    background: #1a1a1a;
+    color: var(--white);
+    padding: 80px 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quote-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='1' fill='%23ffffff08'/%3E%3C/svg%3E");
+  }
+
+  .quote-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(15px, 2.2vw, 20px);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-text strong {
+    font-weight: 500;
+  }
+
+  /* ── FOOTER / CONTACT ── */
+  .footer {
+    background: var(--bg);
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    color: var(--pink);
+    text-align: center;
+    position: relative;
+  }
+
+  /* underline squiggle */
+  .footer-title::after {
+    content: '';
+    display: block;
+    height: 5px;
+    background: var(--pink);
+    border-radius: 3px;
+    margin-top: 6px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 48px;
+    text-align: center;
+  }
+
+  .contact-item label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--dark);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .contact-item span, .contact-item a {
+    font-size: 13px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-item a:hover { color: var(--pink); }
+
+  /* decorative dashes */
+  .dash {
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    background: var(--pink);
+    border-radius: 2px;
+    vertical-align: middle;
+    margin: 0 6px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero, .sobre {
+      grid-template-columns: 1fr;
+      padding: 40px 24px;
+      gap: 32px;
+    }
+    .hero { min-height: auto; padding-top: 80px; }
+    .work-section { padding: 32px 24px 40px; }
+    .quote-banner { padding: 60px 32px; }
+    .footer { padding: 40px 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .gallery { gap: 10px; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">DESIGNER.</div>
-        <nav>
-            <a href="#">Work</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+<!-- ── HERO ── -->
+<section class="hero">
+  <!-- decorative SVG squiggles -->
+  <svg class="squiggle sq1" viewBox="0 0 80 40">
+    <path d="M4 20 Q20 4 40 20 Q60 36 76 20" />
+  </svg>
+  <svg class="squiggle sq2" viewBox="0 0 60 30">
+    <path d="M4 15 Q15 4 30 15 Q45 26 56 15" />
+  </svg>
+  <svg class="squiggle sq3" viewBox="0 0 70 35">
+    <path d="M4 18 Q18 4 35 18 Q52 32 66 18" />
+  </svg>
 
-    <div class="container">
-        <div class="hero-text">
-            <span>UI/UX & Product Designer</span>
-            <h1>Digital Experience Designer.</h1>
-            <p>I create high-quality digital products that help businesses grow and engage with their customers.</p>
-            <a href="#" class="btn">View My Work</a>
-        </div>
+  <div class="hero-left">
+    <h1 class="hero-name">Maria<br>Clara</h1>
+    <p class="hero-sub">Storymaker · Criadora de conteúdo digital</p>
+  </div>
 
-        <div class="hero-image">
-            <div class="glass-card">
-                </div>
-        </div>
+  <div class="hero-right">
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="phone-badge">GRACIE BARRA<br>CARLOS GRACIE JR.</div>
+        <div class="phone-photo-placeholder">foto do<br>evento</div>
+        <div class="phone-photo-placeholder" style="height:70px;">foto do<br>evento</div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ── SOBRE MIM ── -->
+<section class="sobre">
+  <div class="sobre-img-wrapper">
+    <div class="sobre-img-frame">
+      <div class="sobre-img-placeholder">foto — Maria Clara</div>
+    </div>
+  </div>
+  <div class="sobre-text">
+    <h2>Sobre mim</h2>
+    <p>
+      Meu nome é Maria Clara Castro Nascimento, tenho 19 anos e sou apaixonada por criar histórias e eternizar momentos. Como estudante de Publicidade e Propaganda, busco traduzir o mundo ao meu redor em registros que gerem emoção. Com experiência em alguns projetos práticos na área, sigo explorando as infinitas possibilidades da comunicação criativa.
+    </p>
+  </div>
+</section>
+
+<!-- ── GALLERY 1 — Unhas ── -->
+<section class="work-section">
+  <div class="section-label">Conheça meus trabalhos</div>
+  <div class="gallery">
+    <div class="gallery-card nails-1">
+      <div class="gallery-card-bg">foto — unhas</div>
+    </div>
+    <div class="gallery-card nails-2">
+      <div class="gallery-card-bg">foto — unhas</div>
+    </div>
+    <div class="gallery-card nails-3">
+      <div class="gallery-card-bg">foto — unhas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY 2 — Casamento ── -->
+<section class="work-section" style="padding-top:0">
+  <div class="section-label">Conheça meus trabalhos</div>
+  <div class="gallery">
+    <div class="gallery-card wedding-1 tall">
+      <div class="gallery-card-bg">foto — casamento</div>
+    </div>
+    <div class="gallery-card wedding-2 tall">
+      <div class="gallery-card-bg">foto — casamento</div>
+    </div>
+    <div class="gallery-card wedding-3 tall">
+      <div class="gallery-card-bg">foto — casamento</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY 3 — Eventos ── -->
+<section class="work-section" style="padding-top:0">
+  <div class="section-label">Conheça meus trabalhos</div>
+  <div class="gallery">
+    <div class="gallery-card event-1">
+      <div class="gallery-card-bg" style="color:#eee">Gracie Barra<br>evento</div>
+    </div>
+    <div class="gallery-card event-2">
+      <div class="gallery-card-bg" style="color:#eee">evento</div>
+    </div>
+    <div class="gallery-card event-3">
+      <div class="gallery-card-bg" style="color:#eee">evento</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE BANNER ── -->
+<section class="quote-banner">
+  <p class="quote-text">
+    Histórias passam, mas o registro certo as torna eternas. Meu trabalho é capturar a essência do agora e transformá-la em memórias que não se apagam. <strong>Porque o momento é passageiro, mas a emoção que ele carrega merece ser eterna.</strong>
+  </p>
+</section>
+
+<!-- ── FOOTER / CONTACT ── -->
+<footer class="footer">
+  <h2 class="footer-title">Fale comigo</h2>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <label>E-MAIL</label>
+      <a href="mailto:mariaclara@email.com">mariaclaracastronascimento@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <label>INSTAGRAM</label>
+      <a href="https://instagram.com/mria.nacsimen" target="_blank">@mria.nacsimen</a>
+    </div>
+    <div class="contact-item">
+      <label>TELEFONE</label>
+      <span>(27) 99920010</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
